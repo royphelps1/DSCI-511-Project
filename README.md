@@ -8,6 +8,10 @@ Collaborative repo for our DSCI 511 course project (Jupyter + LaTeX). Private re
 - Shad Scarboro
 - Roy Phelps
 
+**Project Resources:**
+- **GitHub Repo (main code/paper hub):** [(https://drive.google.com/drive/folders/1vawtjJAgRlAttClKjX46eAY9A2p-jNFe?usp=share_link)]
+- **Google Drive Folder (large data / alternate option):** [(https://drive.google.com/drive/folders/1vawtjJAgRlAttClKjX46eAY9A2p-jNFe?usp=share_link)]
+
 ## TL;DR
 - Code and notebooks go in the folders listed below.
 - Upload files directly on the GitHub website into the correct folder (see “Collaboration Workflow”).
