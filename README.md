@@ -2,106 +2,73 @@
 
 Collaborative repo for our DSCI 511 course project (Jupyter + LaTeX). Private repo shared by a 4-person team.
 
+**TEAM:**
+- Evan Wessel
+- Leland Weeks
+- Shad Scarboro
+- Roy Phelps
+
 ## TL;DR
-- Code in `notebooks/` for exploration, `src/` for reusable functions.
-- Keep raw/large data **out of Git** (use `data/raw/`, which is gitignored).
-- Write the paper in LaTeX at `reports/paper/main.tex`; put figures/tables under `reports/`.
-- Work on feature branches, PR back to `dev`, and merge to `main` when stable.
+- Code and notebooks go in the folders listed below.
+- Upload files directly on the GitHub website into the correct folder (see “Collaboration Workflow”).
+- Large data lives only in the shared Google Drive folder, not in GitHub.
+- Paper is written in LaTeX at `reports/paper/main.tex`; figures/tables under `reports/`.
+- Everyone may also work from the shared Google Drive folder if preferred; keep the same structure there.
 
 ## Repo Structure
-```
+
+```text
 .
 ├── notebooks/           # Jupyter notebooks (EDA, experiments)
 ├── src/                 # Python modules reusable across notebooks
 ├── tests/               # Optional unit tests for src
 ├── data/
-│   ├── raw/             # Original, immutable data dumps (gitignored)
-│   ├── processed/       # Cleaned/engineered data (gitignored)
-│   └── external/        # Third-party data (gitignored)
+│   ├── raw/             # Original, immutable data dumps (not tracked by Git)
+│   ├── processed/       # Cleaned/engineered data (not tracked by Git)
+│   └── external/        # Third-party data (not tracked by Git)
 ├── reports/
 │   ├── paper/           # LaTeX paper (main.tex)
 │   ├── figures/         # Saved plots/diagrams
 │   └── tables/          # Exported CSV/LaTeX tables
 ├── references/          # BibTeX (references.bib), notes
 ├── docs/                # Extra documentation (e.g., screenshots)
-├── environment.yml      # Reproducible Conda environment
+├── environment.yml      # Optional reproducible Conda environment
 ├── CONTRIBUTING.md      # Team workflow and conventions
 └── .gitignore
 ```
 
-## Getting Started
 
-### 1) Create the Conda env
-```bash
-conda env create -f environment.yml
-conda activate dsci511
-python -m ipykernel install --user --name dsci511 --display-name "Python (dsci511)"
-```
+## Collaboration Workflow (via GitHub Website)
+- Go to the repo on GitHub and **navigate into the correct folder** first.
+- Click **Add file → Upload files**.
+- Drop your files:
+  - Notebooks → `notebooks/`
+  - Python helpers → `src/` (create a subfolder if needed)
+  - LaTeX sections/images → `reports/paper/` and `reports/figures/`
+  - References → `references/`
+  - Screenshots/docs → `docs/`
+- Add a short commit message and **Commit changes**.
+- **Do not upload large data** — put it in the shared Google Drive folder.
 
-### 2) Install notebook output stripping (optional but recommended)
-```bash
-nbstripout --install
-```
-This keeps notebook diffs small by removing heavy outputs on commit (you can still keep key result cells as images under `reports/figures/`).
+> Tip: If you later want to use GitHub Desktop or the command line, that’s fine, but it’s optional.
 
-### 3) Data
-- Put original files in `data/raw/` (not tracked by Git).
-- Save any intermediate artifacts to `data/processed/`.
-- Check in **tiny samples only** if needed for reproducibility (prefix with `sample_`).
-
-## Collaboration Workflow
-
-**Branches**
-- `main` = stable, presentation-ready.
-- `dev`  = integration branch for features.
-- `feature/<name>` = your work branch (e.g., `feature/eda-roy`).
-
-**Typical Cycle**
-1. `git checkout -b feature/eda-roy dev`
-2. Work in `notebooks/` and `src/`.
-3. Commit early/often with clear messages.
-4. Open a Pull Request into `dev`, request a teammate review.
-5. When `dev` is stable, open a PR into `main` before deadlines.
-
-**Notebook Naming**
-- `01-eda-roy.ipynb`, `02-modeling-justin.ipynb`, etc. Use a prefix order tag and your name.
+## Jupyter Notebooks
+- Use Jupyter Notebook or JupyterLab locally.
+- Save your notebooks in `notebooks/` and push them to GitHub.
+- In the shared Google Drive folder, keep the same folder names so it’s easy to sync.
 
 ## LaTeX Paper
-
 - Main file: `reports/paper/main.tex`
 - Add figures to `reports/figures/` and reference with `\includegraphics{../figures/your_figure}`
-- Build locally (one option):
-```bash
-latexmk -pdf -interaction=nonstopmode reports/paper/main.tex
-```
 - BibTeX file: `references/references.bib`
-
+- You can edit `.tex` files online or locally with a LaTeX editor.
+- Optional build locally:
+  ```bash
+  latexmk -pdf -interaction=nonstopmode reports/paper/main.tex
 ## Code Style
-
-- Use Python 3.11.
-- Keep reusable logic in `src/` and import into notebooks.
-- If adding tests, place them in `tests/` with `pytest` style.
-
-## Quick Git Cookbook
-
-```bash
-# First time
-git clone <repo-url>
-cd DSCI-511-Project
-conda env create -f environment.yml && conda activate dsci511
-
-# New branch from dev
-git checkout dev
-git pull
-git checkout -b feature/<name>
-
-# Commit and push
-git add .
-git commit -m "feat: EDA on shipments dataset (Roy)"
-git push -u origin feature/<name>
-
-# Open PR → dev, review, then merge
-```
+- Keep reusable logic in src/ and import into notebooks.
+- If adding tests, place them in tests/ with pytest style.
+- Use Python 3.x (an optional Conda environment is defined in environment.yml for consistency, but it’s not required if you already have Python installed).
 
 ## License
-Private class project. Do not distribute without team consent.
+- Private class project.  Do not distribute without team consent.
