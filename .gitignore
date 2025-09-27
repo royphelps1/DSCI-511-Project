@@ -1,0 +1,61 @@
+# OS
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Python / Env
+__pycache__/
+*.py[cod]
+*.so
+.venv/
+venv/
+.env
+.env.*
+.envrc
+pip-wheel-metadata/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_convert/
+# Don't commit huge notebook outputs by default
+**/*.ipynb_checkpoints/
+# Optionally strip outputs on commit with nbstripout
+
+# Data
+data/raw/*
+data/external/*
+!data/**/.gitkeep
+# Keep small sample data if needed:
+# !data/raw/sample_*.csv
+
+# Build / Reports
+build/
+dist/
+reports/figures/*
+reports/tables/*
+!reports/**/.gitkeep
+
+# LaTeX
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.lot
+*.lof
+*.run.xml
+
+# Editors / IDE
+.vscode/
+.idea/
+*.code-workspace
+
+# OS-specific
+Icon?
+.Spotlight-V100
+.Trashes
